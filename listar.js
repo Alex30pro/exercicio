@@ -17,4 +17,4 @@ function listarResidencias() {
     };
 };
 
-    module.exports = listarResidencias;
+   module.exports = listarResidencias; 

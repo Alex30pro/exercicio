@@ -28,9 +28,16 @@ function mainMenu(){
             const bairro = prompt('Digite o nome do bairro: ');
             const rua = prompt('Digite o nome da rua: ');
             const numero = prompt('Digite o número da residência: ');
-            const morador = prompt('Digite o nome do marador: ');
+            let residencias = [];
+            let adicionarMais = true;
+
+            while (adicionarMais) {
+                const morador = prompt('Digite o morador: ');
+                residencias.push(morador);
+                adicionarMais = prompt('Deseja adicionar outro morador? (s/n): ').toLowerCase() === 's';
+            };
             adicionarResidencia({bairro, rua, numero, morador});
-            console.log('Contato adicionado com sucesso!');
+            console.log('Residência adicionada com sucesso!');
             mainMenu();
             break;
         case '3':
@@ -39,8 +46,16 @@ function mainMenu(){
             const novoBairro = prompt('Digite o novo nome do bairro: ');  
             const novaRua = prompt('Digite o nome da nova rua: ');
             const novoNumero = prompt('Digite o novo número da residência: ');
-            const novoMorador = prompt('Digite o novo morador da residencia: ');
-            atualizarResidencias(index, {bairro: novoBairro, rua: novaRua, numero: novoNumero, morador: novoMorador});
+            
+            let novosMoradores = [];
+            let adicionarMaisNovos = true;
+
+            while (adicionarMaisNovos) {
+                const novoMorador = prompt('Digite o novo morador da residencia: ');
+                novosMoradores.push(novoMorador);
+                adicionarMaisNovos = prompt('Deseja adicionar outro telefone? (s/n): ').toLowerCase() === 's';
+            }
+            atualizarResidencias(index, {bairro: novoBairro, rua: novaRua, numero: novoNumero, morador: novosMoradores});
             console.log('Contato atualizado com sucesso');
             mainMenu();
             break;
